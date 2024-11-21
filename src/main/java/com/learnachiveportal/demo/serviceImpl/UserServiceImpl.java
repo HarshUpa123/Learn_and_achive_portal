@@ -11,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -29,7 +26,6 @@ import com.learnachiveportal.demo.dto.JwtResponse;
 import com.learnachiveportal.demo.dto.UserRquestDto;
 import com.learnachiveportal.demo.entity.Role;
 import com.learnachiveportal.demo.entity.User;
-import com.learnachiveportal.demo.jwt.AthenticationService;
 import com.learnachiveportal.demo.jwt.JwtHelper;
 import com.learnachiveportal.demo.service.UserService;
 import com.learnachiveportal.demo.user.RoleRepository;
@@ -64,30 +60,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public User saveUser(User user) {
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		Set<Role> roles = new HashSet<>();
-		for (Role role : user.getRoleName()) {
-			Role existingRole = roleRepository.findByName(role.getName());
-			if (existingRole != null) {
-				roles.add(existingRole);
-			} else {
-				roles.add(roleRepository.save(role));
-			}
-		}
-		user.setRoleName(roles);
-
-		return userRepository.save(user);
-	}
-
-	@Override
-	public Role findByName(String user) {
-		return roleRepository.findByName(user);
-	}
-
-	@Override
 	public ResponseEntity<ApiResponse> createUser(UserRquestDto userRequest) {
-		System.out.println("===============9000000======================"+userRequest);
+		System.out.println("===============9000000======================" + userRequest);
 		Set<Role> roles = new HashSet<>();
 		for (String roleName : userRequest.getRoles()) {
 			Role role = roleRepository.findByName(roleName);
@@ -110,29 +84,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		map.put("USER", save);
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(ApiResponse.builder().msj("User created").statusCode(200L).data(map).build());
-	}
-
-	@Override
-	public JwtResponse login(JwtRequest request) {
-		this.doAuthenticate(request.getEmail(), request.getPassword());
-
-		UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
-		String token = this.helper.generateToken((JwtResponse) userDetails);
-
-		JwtResponse response = JwtResponse.builder().jwtToken(token).userName(userDetails.getUsername()).build();
-		return response;
-
-	}
-
-	private void doAuthenticate(String email, String password) {
-		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, password);
-		try {
-			((AuthenticationManager) myConfig).authenticate(authentication);
-
-		} catch (BadCredentialsException e) {
-			throw new BadCredentialsException(" Invalid Username or Password  !!");
-		}
-
 	}
 
 	@Override
@@ -161,6 +112,22 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 				.map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName())).collect(Collectors.toSet());
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
 
+	}
+
+	@Override
+	public User updateUserDetails(UserRquestDto userdto, Long userId) {
+		
+		User user= userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found with this id: " + userdto.getUserName()));
+		 User user1= new User();
+		 user1.setUserName(user.getUsername());
+		 user1.setEmail(user.getEmail());
+		 user1.setPassword(user.getPassword());
+		 return user1;
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		userRepository.deleteById(id);
 	}
 
 }

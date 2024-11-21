@@ -16,14 +16,11 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.learnachiveportal.demo.jwt.JwtAuthenticationFilter;
-import com.learnachiveportal.demo.jwt.JwtEntryPoint;
 
 @Configuration
 @EnableWebSecurity
 public class UserWebConfiguration {
 
-	@Autowired
-	private JwtEntryPoint point;
 	@Autowired
 	private JwtAuthenticationFilter filter;
 	private AuthenticationProvider authenticationProvider;
@@ -39,6 +36,7 @@ public class UserWebConfiguration {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		System.out.println("====================================================");
 		http.csrf().disable().authorizeHttpRequests().requestMatchers(permitAll).permitAll().anyRequest()
 				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(authenticationProvider)
