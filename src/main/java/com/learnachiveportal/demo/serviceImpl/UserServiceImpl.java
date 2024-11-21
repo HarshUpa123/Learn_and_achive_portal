@@ -26,6 +26,7 @@ import com.learnachiveportal.demo.dto.JwtResponse;
 import com.learnachiveportal.demo.dto.UserRquestDto;
 import com.learnachiveportal.demo.entity.Role;
 import com.learnachiveportal.demo.entity.User;
+import com.learnachiveportal.demo.exceptionhandler.UserNotFound;
 import com.learnachiveportal.demo.jwt.JwtHelper;
 import com.learnachiveportal.demo.service.UserService;
 import com.learnachiveportal.demo.user.RoleRepository;
@@ -69,7 +70,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 				roles.add(role);
 			} else {
 				return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-						.body(ApiResponse.builder().msj("Invailid Role").statusCode(400L).build());
+						.body(ApiResponse.builder().msg("Invailid Role").statusCode(400).build());
 			}
 		}
 		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -83,13 +84,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		Map<String, Object> map = new HashMap<>();
 		map.put("USER", save);
 		return ResponseEntity.status(HttpStatus.OK)
-				.body(ApiResponse.builder().msj("User created").statusCode(200L).data(map).build());
+				.body(ApiResponse.builder().msg("User created").statusCode(200).build());
 	}
 
 	@Override
-	public JwtResponse loginWithUserDetails(JwtRequest request) throws UserPrincipalNotFoundException {
+	public JwtResponse loginWithUserDetails(JwtRequest request) throws UserNotFound{
 		UserDetails userByUsername = null;
-		try {
 			userByUsername = loadUserByUsername(request.getEmail());
 			if (passwordEncoder.matches(request.getPassword(), userByUsername.getPassword())) {
 				String token = this.helper.generateToken(userByUsername);
@@ -97,17 +97,16 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 				JwtResponse userResponse = JwtResponse.builder().jwtToken(token).userName(userByUsername.getUsername())
 						.build();
 				return userResponse;
-			}
-		} catch (Exception e) {
-			throw new UserPrincipalNotFoundException("User is not valid");
+			
 		}
-		return null;
+			return null;			
 	}
+	
+
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(username)
-				.orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
+		User user = userRepository.findByEmail(username).orElseThrow(()-> new UserNotFound("", 404));
 		Set<SimpleGrantedAuthority> authorities = user.getRoleName().stream()
 				.map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName())).collect(Collectors.toSet());
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
@@ -117,7 +116,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public User updateUserDetails(UserRquestDto userdto, Long userId) {
 		
-		User user= userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found with this id: " + userdto.getUserName()));
+		User user= userRepository.findById(userId).orElseThrow(()-> new UserNotFound("", 404));
 		 User user1= new User();
 		 user1.setUserName(user.getUsername());
 		 user1.setEmail(user.getEmail());

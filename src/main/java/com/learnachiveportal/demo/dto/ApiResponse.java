@@ -1,7 +1,5 @@
 package com.learnachiveportal.demo.dto;
 
-import java.util.Map;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,9 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class ApiResponse {
-	
-	private String msj;
-	private Map<String,Object> data;
-	private Long statusCode;
+
+	private String msg;
+	private int statusCode;
 
 }

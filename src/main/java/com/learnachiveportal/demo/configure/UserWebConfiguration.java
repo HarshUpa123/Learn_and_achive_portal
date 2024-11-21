@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -37,26 +38,26 @@ public class UserWebConfiguration {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		System.out.println("====================================================");
-		http.csrf().disable().authorizeHttpRequests().requestMatchers(permitAll).permitAll().anyRequest()
-				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+		http.csrf(AbstractHttpConfigurer::disable)
+				.authorizeHttpRequests(
+						authorize -> authorize.requestMatchers(permitAll).permitAll().anyRequest().authenticated())
+				.sessionManagement(
+						sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider)
 				.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 
 		return http.build();
+
 	}
 
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-
 		configuration.setAllowedOrigins(List.of("http://localhost:8005"));
 		configuration.setAllowedMethods(List.of("GET", "POST"));
 		configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
-
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
 		source.registerCorsConfiguration("/**", configuration);
-
 		return source;
 	}
 }

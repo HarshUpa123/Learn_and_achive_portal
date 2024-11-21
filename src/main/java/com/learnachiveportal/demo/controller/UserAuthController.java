@@ -18,6 +18,7 @@ import com.learnachiveportal.demo.dto.JwtRequest;
 import com.learnachiveportal.demo.dto.JwtResponse;
 import com.learnachiveportal.demo.dto.UserRquestDto;
 import com.learnachiveportal.demo.entity.User;
+import com.learnachiveportal.demo.exceptionhandler.UserNotFound;
 import com.learnachiveportal.demo.service.UserService;
 
 @RestController
@@ -33,7 +34,7 @@ public class UserAuthController {
 	}
 
 	@GetMapping("/loginwithuser")
-	public JwtResponse loginWithTheUser(@RequestBody JwtRequest jwtRequest) throws UserPrincipalNotFoundException {
+	public JwtResponse loginWithTheUser(@RequestBody JwtRequest jwtRequest) throws UserNotFound {
 		return userService.loginWithUserDetails(jwtRequest);
 
 	}

@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.learnachiveportal.demo.exceptionhandler.UserNotFound;
 import com.learnachiveportal.demo.user.UserRepository;
 
 @Configuration
@@ -25,7 +26,7 @@ public class MyConfig {
 	@Bean
 	UserDetailsService userDetailsService() {
 		return username -> userRepository.findByEmail(username)
-				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
+				.orElseThrow(() -> new UserNotFound("User Not Found", 404));
 	}
 
 	@Bean
