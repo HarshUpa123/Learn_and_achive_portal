@@ -1,7 +1,5 @@
 package com.learnachiveportal.demo.service;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
-
 import org.springframework.http.ResponseEntity;
 
 import com.learnachiveportal.demo.dto.ApiResponse;
@@ -18,7 +16,7 @@ public interface UserService {
 	public JwtResponse loginWithUserDetails(JwtRequest request) throws UserNotFound;
 
 	public User updateUserDetails(UserRquestDto userdto, Long userId);
-	
+
 	public void deleteById(Long id);
 
 }

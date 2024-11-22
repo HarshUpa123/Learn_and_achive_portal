@@ -1,6 +1,5 @@
 package com.learnachiveportal.demo.serviceImpl;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -48,11 +47,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Qualifier("userDetailsService")
 	private UserDetailsService userDetailsService;
 
-	@Autowired
-	private JwtHelper helper;
-
-	@Autowired
-	MyConfig myConfig;
 
 	JwtResponse storeduserDetails = new JwtResponse();
 
@@ -88,25 +82,22 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public JwtResponse loginWithUserDetails(JwtRequest request) throws UserNotFound{
+	public JwtResponse loginWithUserDetails(JwtRequest request) throws UserNotFound {
 		UserDetails userByUsername = null;
-			userByUsername = loadUserByUsername(request.getEmail());
-			if (passwordEncoder.matches(request.getPassword(), userByUsername.getPassword())) {
-				String token = this.helper.generateToken(userByUsername);
+		userByUsername = loadUserByUsername(request.getEmail());
+		if (passwordEncoder.matches(request.getPassword(), userByUsername.getPassword())) {
 
-				JwtResponse userResponse = JwtResponse.builder().jwtToken(token).userName(userByUsername.getUsername())
-						.build();
-				return userResponse;
-			
+			JwtResponse userResponse = JwtResponse.builder().jwtToken(token).userName(userByUsername.getUsername())
+					.build();
+			return userResponse;
+
 		}
-			return null;			
+		return null;
 	}
-	
-
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(username).orElseThrow(()-> new UserNotFound("", 404));
+		User user = userRepository.findByEmail(username).orElseThrow(() -> new UserNotFound("", 404));
 		Set<SimpleGrantedAuthority> authorities = user.getRoleName().stream()
 				.map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName())).collect(Collectors.toSet());
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
@@ -115,13 +106,13 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 	@Override
 	public User updateUserDetails(UserRquestDto userdto, Long userId) {
-		
-		User user= userRepository.findById(userId).orElseThrow(()-> new UserNotFound("", 404));
-		 User user1= new User();
-		 user1.setUserName(user.getUsername());
-		 user1.setEmail(user.getEmail());
-		 user1.setPassword(user.getPassword());
-		 return user1;
+
+		User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFound("", 404));
+		User user1 = new User();
+		user1.setUserName(user.getUsername());
+		user1.setEmail(user.getEmail());
+		user1.setPassword(user.getPassword());
+		return user1;
 	}
 
 	@Override
