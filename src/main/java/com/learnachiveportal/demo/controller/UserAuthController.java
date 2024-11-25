@@ -28,11 +28,14 @@ public class UserAuthController {
 
 	@PostMapping("/createUser")
 	public ResponseEntity<?> createUser(@RequestBody UserRquestDto userRequest) {
+		System.out.print("============================================"+userRequest);
 		return userService.createUser(userRequest);
 	}
 
 	@GetMapping("/loginwithuser")
 	public JwtResponse loginWithTheUser(@RequestBody JwtRequest jwtRequest) throws UserNotFound {
+		System.out.print("============================================"+jwtRequest);
+
 		return userService.loginWithUserDetails(jwtRequest);
 
 	}

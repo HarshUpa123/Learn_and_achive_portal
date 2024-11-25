@@ -6,8 +6,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.learnachiveportal.demo.config.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +20,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.learnachiveportal.demo.configure.MyConfig;
 import com.learnachiveportal.demo.dto.ApiResponse;
 import com.learnachiveportal.demo.dto.JwtRequest;
 import com.learnachiveportal.demo.dto.JwtResponse;
@@ -26,7 +27,6 @@ import com.learnachiveportal.demo.dto.UserRquestDto;
 import com.learnachiveportal.demo.entity.Role;
 import com.learnachiveportal.demo.entity.User;
 import com.learnachiveportal.demo.exceptionhandler.UserNotFound;
-import com.learnachiveportal.demo.jwt.JwtHelper;
 import com.learnachiveportal.demo.service.UserService;
 import com.learnachiveportal.demo.user.RoleRepository;
 import com.learnachiveportal.demo.user.UserRepository;
@@ -41,11 +41,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	RoleRepository roleRepository;
 
 	@Autowired
+	@Lazy
 	private PasswordEncoder passwordEncoder;
-
-	@Autowired
-	@Qualifier("userDetailsService")
-	private UserDetailsService userDetailsService;
 
 
 	JwtResponse storeduserDetails = new JwtResponse();
@@ -84,11 +81,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public JwtResponse loginWithUserDetails(JwtRequest request) throws UserNotFound {
 		UserDetails userByUsername = null;
-		userByUsername = loadUserByUsername(request.getEmail());
+		userByUsername = loadUserByUsername(request.getUserName());
 		if (passwordEncoder.matches(request.getPassword(), userByUsername.getPassword())) {
 
-			JwtResponse userResponse = JwtResponse.builder().jwtToken(token).userName(userByUsername.getUsername())
+			JwtResponse userResponse = JwtResponse.builder().jwtToken(new JwtUtils().generateToken(userByUsername.getUsername())).userName(userByUsername.getUsername())
 					.build();
+			System.out.println("================================91================="+userResponse);
 			return userResponse;
 
 		}
@@ -96,11 +94,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(username).orElseThrow(() -> new UserNotFound("", 404));
+	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		User user = userRepository.findByUserName(userName).orElseThrow(() -> new UserNotFound("", 404));
 		Set<SimpleGrantedAuthority> authorities = user.getRoleName().stream()
 				.map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName())).collect(Collectors.toSet());
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
 
 	}
 

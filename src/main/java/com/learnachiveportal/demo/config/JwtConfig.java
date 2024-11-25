@@ -23,16 +23,17 @@ import java.net.http.HttpRequest;
 public class JwtConfig {
 
     @Autowired
-    UserDetailsService details;
+    private UserDetailsService detailsService;
 
     @Autowired
-    AccessDeniedHandler handler;
+    private AccessDeniedHandler deniedHandler;
 
     @Autowired
-    AuthenticationEntryPoint entry;
+    private AuthenticationEntryPoint entryPoint;
 
     @Autowired
-    JwtFilter jwtFilter;
+    private JwtFilter jwtFilter;
+
 
     @Bean
     BCryptPasswordEncoder passwordEncoder(){
@@ -48,7 +49,7 @@ public class JwtConfig {
     DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-        daoAuthenticationProvider.setUserDetailsService(details);
+        daoAuthenticationProvider.setUserDetailsService(detailsService);
         return  daoAuthenticationProvider;
     }
 
@@ -56,11 +57,8 @@ public class JwtConfig {
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf((csrf)-> csrf.disable())
                 .authorizeHttpRequests((request)->request
-                        .requestMatchers("/auth/loginByUser").permitAll()
-                        .anyRequest().authenticated()).exceptionHandling(
-                                (exception)-> {exception.accessDeniedHandler(handler);
-        exception.authenticationEntryPoint(entry);
-                                }).sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        .requestMatchers("/auth/loginwithuser","/auth/createUser").permitAll()
+                        .anyRequest().authenticated()).sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
 

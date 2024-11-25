@@ -5,51 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33128caf-af21-4bc4-a098-b373209efd6e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/configure/MyConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/configure/UserWebConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/config/JwtConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/config/JwtConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/config/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/config/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/config/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/config/JwtUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/controller/UserAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/controller/UserAuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/jwt/AthenticationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/jwt/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/jwt/JwtEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/jwt/JwtHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/jwt/JwtService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/dto/JwtRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/dto/JwtRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/dto/UserRquestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/dto/UserRquestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/serviceImpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.learnachiveportal/demo/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com.learnachiveportal/demo/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/LearnAndActivePortalApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/LearnAndActivePortalApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/configure/MyConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/configure/UserWebConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/constants/ApplicationConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/constants/ApplicationConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/controller/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/controller/UserAuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/controller/UserAuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/ApiResponse$ApiResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/ApiResponse$ApiResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/ApiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/ApiResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtRequest$JwtRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtRequest$JwtRequestBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtResponse$JwtResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtResponse$JwtResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/JwtResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/UserRquestDto$UserRquestDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/UserRquestDto$UserRquestDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/UserRquestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/dto/UserRquestDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/Role$RoleBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/Role$RoleBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/User$UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/exceptionhandler/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/exceptionhandler/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/exceptionhandler/UserNotFound.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/exceptionhandler/UserNotFound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/jwt/AthenticationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/jwt/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/jwt/JwtEntryPoint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/jwt/JwtHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/jwt/JwtService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/serviceImpl/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/user/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/user/RoleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/learnachiveportal/demo/user/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/learnachiveportal/demo/LearnAndActivePortalApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/learnachiveportal/demo/LearnAndActivePortalApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/learnachiveportal/demo/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.learnachiveportal.demo.LearnAndActivePortalApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.learnachiveportal.demo.LearnAndActivePortalApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.learnachiveportal.demo.LearnAndActivePortalApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.learnachiveportal.demo.LearnAndActivePortalApplicationTests.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +37,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenRunner">
-    <option name="skipTests" value="true" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -77,32 +45,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.LearnAndActivePortalApplication.executor": "Run",
-    "Maven.LearnAndActivePortalApplication.executor": "Run",
-    "Maven.Unnamed.executor": "Run",
-    "Maven.demo [--check-plugin-updates].executor": "Run",
-    "Maven.demo [--update-plugins].executor": "Run",
-    "Maven.leanandachive.executor": "Run",
-    "Maven.learnandachiveportal.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/java_projects/learn&achive_portal_backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LearnAndActivePortalApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.LearnAndActivePortalApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [--check-plugin-updates].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.demo [--update-plugins].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.leanandachive.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.learnandachiveportal.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/java_projects/learn&amp;achive_portal_backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn --check-plugin-updates" />

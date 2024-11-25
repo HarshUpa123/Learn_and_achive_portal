@@ -1,5 +1,6 @@
-C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\configure\MyConfig.java
-C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\configure\UserWebConfiguration.java
+C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\config\JwtConfig.java
+C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\config\JwtFilter.java
+C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\config\JwtUtils.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\constants\ApplicationConstants.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\controller\HomeController.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\controller\UserAuthController.java
@@ -10,12 +11,10 @@ C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\dto\UserRquestDto.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\entity\Role.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\entity\User.java
+C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\exceptionhandler\CustomDeniedHandler.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\exceptionhandler\GlobalExceptionHandler.java
+C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\exceptionhandler\InvalidAuthEntryPoint.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\exceptionhandler\UserNotFound.java
-C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\jwt\AthenticationService.java
-C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\jwt\JwtAuthenticationFilter.java
-C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\jwt\JwtEntryPoint.java
-C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\jwt\JwtHelper.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\LearnAndActivePortalApplication.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\service\UserService.java
 C:\java_projects\learn&achive_portal_backend\src\main\java\com\learnachiveportal\demo\serviceImpl\UserServiceImpl.java
